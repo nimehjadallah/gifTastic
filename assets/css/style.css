@@ -1,0 +1,20 @@
+body{
+    background-image: url(../images/background.png);
+    background-repeat: repeat;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.jumbotron{
+    background-color: rgb(184, 180, 180);
+
+
+}
+
+h1{
+    font-weight: bold;
+}
+
+button{
+    margin: 5px;
+}
+
