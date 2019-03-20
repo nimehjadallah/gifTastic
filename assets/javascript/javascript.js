@@ -3,6 +3,32 @@ var holidays = ["Christmas", "Thanksgiving", "Easter", "Fourth Of July"];
 
 // ========================================================
 
+function renderButtons(){ 
+
+    $("#buttons-view").empty();
+
+    for (var i = 0; i < holidays.length; i++){
+
+        var newButton = $('<button class="btn btn-info">') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
+        newButton.addClass("holiday"); // Added a class 
+        newButton.attr("data-name", holidays[i]); // Added a data-attribute
+        newButton.text(holidays[i]); // Provided the initial button text
+        $("#buttons-view").append(newButton); // Added the button to the HTML
+    }
+}
+
+$("#addHoliday").on("click", function(event){
+    event.preventDefault();
+
+    var holiday = $("#holidayInput").val().trim();
+
+    holidays.push(holiday);
+    
+    renderButtons();
+
+    return false;
+});
+
 
 function displayGif(){
 
@@ -46,32 +72,6 @@ function displayGif(){
 
 }
 
-
-function renderButtons(){ 
-
-    $("#buttons-view").empty();
-
-    for (var i = 0; i < holidays.length; i++){
-
-        var newButton = $('<button class="btn btn-info">') // This code $('<button>') is all jQuery needs to create the beginning and end tag. (<button></button>)
-        newButton.addClass("holiday"); // Added a class 
-        newButton.attr("data-name", holidays[i]); // Added a data-attribute
-        newButton.text(holidays[i]); // Provided the initial button text
-        $("#buttons-view").append(newButton); // Added the button to the HTML
-    }
-}
-
-$("#addHoliday").on("click", function(event){
-    event.preventDefault();
-
-    var holiday = $("#holidayInput").val().trim();
-
-    holidays.push(holiday);
-    
-    renderButtons();
-
-    return false;
-});
 
 
 $(document).on("click", ".holiday", displayGif);
